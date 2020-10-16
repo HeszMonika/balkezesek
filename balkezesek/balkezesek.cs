@@ -14,6 +14,7 @@ namespace balkezesek
         public int suly { get; private set; }
         public int magassag { get; private set; }
 
+
         public balkezesek(string sor)
         {
             string[] a= sor.Split(';');
