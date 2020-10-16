@@ -117,6 +117,24 @@ namespace balkezesek
         }
 
 
+        static void Kiiras()
+        {
+            var nevek = from b in balkezes select b.nev;
+            var nevLista = nevek.ToList();
+            var kezdobetu = from n in nevLista orderby n group n by n[0] into tempNevek select tempNevek;
+
+            Console.WriteLine("\nCsoportosítás kezdőbetű szerint");
+            foreach (var csoport in kezdobetu)
+            {
+                Console.WriteLine("Kezdőbetű: {0}", csoport.Key);
+                foreach (var csoportTag in csoport)
+                {
+                    Console.WriteLine($"\t{csoportTag}");
+                }
+            }
+        }
+
+
         static void Main(string[] args)
         {
             Beolvasas();
@@ -130,6 +148,7 @@ namespace balkezesek
             otodikFeladat();
             hatodikFeladat();
             otodikHatodikFeladat();
+            Kiiras();
 
 
             Console.ReadKey();
